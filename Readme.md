@@ -3,7 +3,7 @@
 
 Rocketseat Course Learning
 
-![](Ignite.png)
+![](./Ignite.png)
 
 ## Installation
 
