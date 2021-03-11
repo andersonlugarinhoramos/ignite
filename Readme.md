@@ -8,7 +8,7 @@ Rocketseat Course Learning
 ## Installation
 
 ```sh
-clone repositorie
+clone https://github.com/andersonlugarinhoramos/ignite
 execute yarn
 ```
 
