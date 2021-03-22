@@ -38,10 +38,10 @@ Aplicação de carrinho de compras de um ecommerce de tênis. Desafio consiste e
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/Joao-Augusto-Oliveira/desafio2ignite
+$ git clone https://github.com/andersonlugarinhoramos/ignite/tree/master/reactjs/hook-challenge
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd desafio2ignite
+$ cd hook-challenge
 
 # Instale as dependências
 $ yarn
@@ -56,7 +56,7 @@ $ yarn start
 <br>
 
 <h3 align="center">
-Feito com 💜 por <a href="https://www.linkedin.com/in/joão-augusto-oliveira-dos-santos-9b0693195">João Augusto</a>
+Feito com 💜 por Anderson Ramos
 <br><br>
 
   <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%237519C1">
