@@ -10,8 +10,7 @@ class Specification {
     if (!this.id) {
       this.id = uuidV4();
     }
-  
+  }
+}
 
 export { Specification };
-
-
