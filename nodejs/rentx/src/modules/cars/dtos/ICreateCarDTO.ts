@@ -1,11 +1,11 @@
 interface ICreateCarDTO {
   name: string;
   description: string;
-  dailyRat: number;
+  dailyRate: number;
   licensePlate: string;
   fineAmount: number;
   brand: string;
-  cagtegoryId: string;
+  categoryId: string;
 }
 
 export { ICreateCarDTO };
