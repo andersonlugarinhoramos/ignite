@@ -19,10 +19,10 @@ class Category {
   description: string;
 
   @CreateDateColumn()
-  created_At: Date;
+  createdAt: Date;
 
   @UpdateDateColumn()
-  updated_At: Date;
+  updatedAt: Date;
 
   constructor() {
     if (!this.id) {

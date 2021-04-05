@@ -30,7 +30,7 @@ export class CreateUsers1617475216761 implements MigrationInterface {
             type: "varchar",
           },
           {
-            name: "driver_license",
+            name: "driverLicense",
             type: "varchar",
           },
           {
@@ -39,12 +39,12 @@ export class CreateUsers1617475216761 implements MigrationInterface {
             default: false,
           },
           {
-            name: "created_At",
+            name: "createdAt",
             type: "timestamp",
             default: "now()",
           },
           {
-            name: "updated_At",
+            name: "updatedAt",
             type: "timestamp",
             default: "now()",
           },

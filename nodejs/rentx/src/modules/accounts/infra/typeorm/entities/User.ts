@@ -25,16 +25,16 @@ class User {
   password: string;
 
   @Column()
-  driver_license: string;
+  driverLicense: string;
 
   @Column()
   isAdmin: boolean;
 
   @CreateDateColumn()
-  created_At: Date;
+  createdAt: Date;
 
   @UpdateDateColumn()
-  updated_At: Date;
+  updatedAt: Date;
 
   constructor() {
     if (!this.id) {
