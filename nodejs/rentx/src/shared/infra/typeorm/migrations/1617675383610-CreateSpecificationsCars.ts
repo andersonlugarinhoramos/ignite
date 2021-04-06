@@ -26,7 +26,7 @@ export class CreateSpecificationsCars1617675383610
             default: "now()",
           },
           {
-            name: "UpdatedAt",
+            name: "updatedAt",
             type: "timestamp",
             default: "now()",
           },

@@ -3,6 +3,8 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   PrimaryColumn,
   UpdateDateColumn,
@@ -10,6 +12,7 @@ import {
 import { v4 as uuidV4 } from "uuid";
 
 import { Category } from "./Category";
+import { Specification } from "./Specification";
 
 @Entity("cars")
 class Car {
@@ -43,6 +46,14 @@ class Car {
 
   @Column()
   categoryId: string;
+
+  @ManyToMany(() => Specification)
+  @JoinTable({
+    name: "specificationsCars",
+    joinColumns: [{ name: "carId" }],
+    inverseJoinColumns: [{ name: "specificationId" }],
+  })
+  specifications: Specification[];
 
   @CreateDateColumn()
   createdAt: Date;

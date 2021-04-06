@@ -16,11 +16,11 @@ describe("Create Car", () => {
     const car = await createCarUseCase.execute({
       name: "Name Car",
       description: "Description Car",
-      dailyRat: 100,
+      dailyRate: 100,
       licensePlate: "ABC-1234",
       fineAmount: 60,
       brand: "Brand",
-      cagtegoryId: "category",
+      categoryId: "category",
     });
 
     expect(car).toHaveProperty("id");
@@ -31,21 +31,21 @@ describe("Create Car", () => {
       await createCarUseCase.execute({
         name: "Car1",
         description: "Description Car",
-        dailyRat: 100,
+        dailyRate: 100,
         licensePlate: "ABC-1234",
         fineAmount: 60,
         brand: "Brand",
-        cagtegoryId: "category",
+        categoryId: "category",
       });
 
       await createCarUseCase.execute({
         name: "Car2",
         description: "Description Car",
-        dailyRat: 100,
+        dailyRate: 100,
         licensePlate: "ABC-1234",
         fineAmount: 60,
         brand: "Brand",
-        cagtegoryId: "category",
+        categoryId: "category",
       });
     }).rejects.toBeInstanceOf(AppError);
 
@@ -53,11 +53,11 @@ describe("Create Car", () => {
       const car = await createCarUseCase.execute({
         name: "Car1",
         description: "Description Car",
-        dailyRat: 100,
+        dailyRate: 100,
         licensePlate: "ABC-1234",
         fineAmount: 60,
         brand: "Brand",
-        cagtegoryId: "category",
+        categoryId: "category",
       });
 
       expect(car.available).toBe(true);
