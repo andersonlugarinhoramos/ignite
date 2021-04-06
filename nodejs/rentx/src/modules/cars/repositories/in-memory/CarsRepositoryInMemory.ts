@@ -1,4 +1,4 @@
-import { ICreateCarDTO } from "@modules/cars/dtos/ICreateUserDTO";
+import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 
 import { ICarsRepository } from "../ICarsRepository";
@@ -8,8 +8,8 @@ class CarsRepositoryInMemory implements ICarsRepository {
 
   async create({
     brand,
-    cagtegoryId,
-    dailyRat,
+    categoryId,
+    dailyRate,
     description,
     fineAmount,
     licensePlate,
@@ -19,8 +19,8 @@ class CarsRepositoryInMemory implements ICarsRepository {
 
     Object.assign(car, {
       brand,
-      cagtegoryId,
-      dailyRat,
+      categoryId,
+      dailyRate,
       description,
       fineAmount,
       licensePlate,
@@ -34,6 +34,26 @@ class CarsRepositoryInMemory implements ICarsRepository {
 
   async findByLicensePlate(licensePlate: string): Promise<Car> {
     return this.cars.find((car) => car.licensePlate === licensePlate);
+  }
+
+  async findAvailable(
+    brand?: string,
+    categoryId?: string,
+    name?: string
+  ): Promise<Car[]> {
+    const all = this.cars.filter((car) => {
+      if (
+        car.available === true ||
+        (brand && car.brand === brand) ||
+        (categoryId && car.categoryId === categoryId) ||
+        (name && car.name === name)
+      ) {
+        return car;
+      }
+      return null;
+    });
+
+    return all;
   }
 }
 
