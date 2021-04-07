@@ -1,25 +1,29 @@
 import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
+import { SpecificationIRepositoryInMemory } from "@modules/cars/repositories/in-memory/SpecificationIRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
 
 import { CreateCarSpecificationUseCase } from "./CreateCarSpecificationUseCase";
 
 let createCarSpecificationUseCase: CreateCarSpecificationUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
+let specificationRepositoryInMemory: SpecificationIRepositoryInMemory;
 
 describe("Create Car Specification", () => {
   beforeEach(() => {
     carsRepositoryInMemory = new CarsRepositoryInMemory();
+    specificationRepositoryInMemory = new SpecificationIRepositoryInMemory();
     createCarSpecificationUseCase = new CreateCarSpecificationUseCase(
-      carsRepositoryInMemory
+      carsRepositoryInMemory,
+      specificationRepositoryInMemory
     );
   });
 
   it("Should not be able to add a new specification to a now-existent car", async () => {
     expect(async () => {
       const carId = "12334";
-      const specificatonsId = ["54321"];
+      const specificationsId = ["54321"];
 
-      await createCarSpecificationUseCase.execute({ carId, specificatonsId });
+      await createCarSpecificationUseCase.execute({ carId, specificationsId });
     }).rejects.toBeInstanceOf(AppError);
   });
 
@@ -34,11 +38,19 @@ describe("Create Car Specification", () => {
       categoryId: "category",
     });
 
-    const specificatonsId = ["54321"];
-
-    await createCarSpecificationUseCase.execute({
-      carId: car.id,
-      specificatonsId,
+    const specificaton = await specificationRepositoryInMemory.create({
+      description: "test",
+      name: "test",
     });
+
+    const specificationsId = [specificaton.id];
+
+    const specificationCars = await createCarSpecificationUseCase.execute({
+      carId: car.id,
+      specificationsId,
+    });
+
+    expect(specificationCars).toHaveProperty("specifications");
+    expect(specificationCars.specifications.length).toBe(1);
   });
 });
