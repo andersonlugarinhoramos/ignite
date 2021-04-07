@@ -14,7 +14,7 @@ describe("List Cars,", () => {
   });
 
   it("Should be able to list all available cars", async () => {
-    const car = carsRepositoryInMemory.create({
+    const car = await carsRepositoryInMemory.create({
       name: "Car1",
       description: "Car description",
       dailyRate: 100.0,
@@ -30,7 +30,7 @@ describe("List Cars,", () => {
   });
 
   it("Should be able to list all available cars by brand", async () => {
-    const car = carsRepositoryInMemory.create({
+    const car = await carsRepositoryInMemory.create({
       name: "Car1",
       description: "Car description",
       dailyRate: 100.0,
@@ -48,7 +48,7 @@ describe("List Cars,", () => {
   });
 
   it("Should be able to list all available cars by name", async () => {
-    const car = carsRepositoryInMemory.create({
+    const car = await carsRepositoryInMemory.create({
       name: "Car3",
       description: "Car description",
       dailyRate: 100.0,
@@ -66,7 +66,7 @@ describe("List Cars,", () => {
   });
 
   it("Should be able to list all available cars by category", async () => {
-    const car = carsRepositoryInMemory.create({
+    const car = await carsRepositoryInMemory.create({
       name: "Car1",
       description: "Car description",
       dailyRate: 100.0,

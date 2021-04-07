@@ -14,13 +14,13 @@ class CreateCarUseCase {
   async execute({
     name,
     description,
-    dailyRat,
+    dailyRate,
     licensePlate,
     fineAmount,
     brand,
-    cagtegoryId,
+    categoryId,
   }: ICreateCarDTO): Promise<Car> {
-    const carAlreadyExists = this.carsRepository.findByLicensePlate(
+    const carAlreadyExists = await this.carsRepository.findByLicensePlate(
       licensePlate
     );
 
@@ -35,7 +35,7 @@ class CreateCarUseCase {
       licensePlate,
       fineAmount,
       brand,
-      cagtegoryId,
+      categoryId,
     });
 
     return car;
