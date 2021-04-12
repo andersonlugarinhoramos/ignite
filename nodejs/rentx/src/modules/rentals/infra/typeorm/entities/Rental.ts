@@ -1,11 +1,13 @@
 import {
   Column,
   CreateDateColumn,
+  Entity,
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
+@Entity("rentals")
 class Rental {
   @PrimaryColumn()
   id: string;
@@ -23,7 +25,7 @@ class Rental {
   endDate: Date;
 
   @Column()
-  expectReturnDate: Date;
+  expectedReturnDate: Date;
 
   @Column()
   total: number;

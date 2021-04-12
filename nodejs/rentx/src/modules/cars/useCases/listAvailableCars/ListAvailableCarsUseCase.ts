@@ -22,6 +22,3 @@ class ListAvailableCarsUseCase {
   }
 }
 export { ListAvailableCarsUseCase };
-function inteject(arg0: string) {
-  throw new Error("Function not implemented.");
-}

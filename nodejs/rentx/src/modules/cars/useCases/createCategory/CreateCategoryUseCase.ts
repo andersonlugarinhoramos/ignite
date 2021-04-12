@@ -12,11 +12,11 @@ interface IRequest {
 class CreateCategoryUseCase {
   constructor(
     @inject("CategoriesRepository")
-    private categoriresRepository: ICategoriesRepository
+    private categoriesRepository: ICategoriesRepository
   ) {}
 
   async execute({ name, description }: IRequest): Promise<void> {
-    const categoryAlreadyExists = await this.categoriresRepository.findByName(
+    const categoryAlreadyExists = await this.categoriesRepository.findByName(
       name
     );
 
@@ -24,7 +24,7 @@ class CreateCategoryUseCase {
       throw new AppError("Category Already exist");
     }
 
-    this.categoriresRepository.create({ name, description });
+    this.categoriesRepository.create({ name, description });
   }
 }
 
