@@ -37,45 +37,46 @@ describe("Authenticate User", () => {
   });
 
   it("should not be able to authenticate an nonexistent user", async () => {
-    expect(async () => {
-      await authenticateUserUseCase.execute({
+    await expect(
+      authenticateUserUseCase.execute({
         email: "false@test.com",
         password: "1234",
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      })
+    ).rejects.toEqual(new AppError("Email or password incorrect!"));
   });
 
   it("Should not be able to authenticate with incorrect password", async () => {
-    expect(async () => {
-      const user: ICreateUserDTO = {
-        driverLicense: "00123",
-        email: "user@test.com",
-        password: "1234",
-        name: "User Test",
-      };
-      await createUserUseCase.execute(user);
+    const user: ICreateUserDTO = {
+      driverLicense: "00123",
+      email: "user@test.com",
+      password: "1234",
+      name: "User Test",
+    };
 
-      await authenticateUserUseCase.execute({
+    await createUserUseCase.execute(user);
+
+    await expect(
+      authenticateUserUseCase.execute({
         email: user.email,
         password: "incorrectPassword",
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      })
+    ).rejects.toEqual(new AppError("Email or password incorrect!"));
   });
 
   it("Should not be able to authenticate with incorrect email", async () => {
-    expect(async () => {
-      const user: ICreateUserDTO = {
-        driverLicense: "00123",
-        email: "user@test.com",
-        password: "1234",
-        name: "User Test",
-      };
-      await createUserUseCase.execute(user);
+    const user: ICreateUserDTO = {
+      driverLicense: "00123",
+      email: "user@test.com",
+      password: "1234",
+      name: "User Test",
+    };
+    await createUserUseCase.execute(user);
 
-      await authenticateUserUseCase.execute({
+    await expect(
+      authenticateUserUseCase.execute({
         email: "incorrectEmail",
         password: user.password,
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      })
+    ).rejects.toEqual(new AppError("Email or password incorrect!"));
   });
 });
