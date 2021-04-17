@@ -14,8 +14,10 @@
     "bcrypt": "^5.0.1",
     "csv-parse": "^4.15.3",
     "dayjs": "^1.10.4",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "handlebars": "^4.7.7",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
     "nodemailer": "^6.5.0",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.11",
+    "@types/handlebars": "^4.1.0",
     "@types/jest": "^26.0.22",
     "@types/multer": "^1.4.5",
     "@types/nodemailer": "^6.4.1",
